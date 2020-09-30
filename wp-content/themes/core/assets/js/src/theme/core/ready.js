@@ -10,8 +10,8 @@ import { on, ready } from 'utils/events';
 import applyBrowserClasses from 'utils/dom/apply-browser-classes';
 // @EXAMPLE_REACT_APP
 
-// import * as tools from 'utils/tools';
-// import { HMR_DEV } from 'config/wp-settings';
+import * as tools from 'utils/tools';
+import { HMR_DEV } from 'config/wp-settings';
 
 // you MUST do this in every module you use lodash in.
 // A custom bundle of only the lodash you use will be built by babel.
@@ -25,9 +25,10 @@ import integrations from './integrations';
 
 // @EXAMPLE_REACT_APP
 
-// const el = {
-// 	exampleAppRoot: tools.getNodes( 'example-app' )[ 0 ],
-// };
+const el = {
+	exampleAppRoot: tools.getNodes( 'example-app' )[ 0 ],
+};
+console.log( 'el', el );
 
 /**
  * @function bindEvents
@@ -66,9 +67,9 @@ const init = () => {
 	// @EXAMPLE_REACT_APP (Make sure to include the wrapping if block for ALL react apps
 
 	// #if INCLUDEREACT
-	// if ( el.exampleAppRoot && ! HMR_DEV ) {
-	// 	import( 'Example' /* webpackChunkName:"example" */ );
-	// }
+	if ( el.exampleAppRoot && ! HMR_DEV ) {
+		import( 'Example' /* webpackChunkName:"example" */ );
+	}
 	// #endif
 
 	// if ( tests.supportsWorkers() ) {

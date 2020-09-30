@@ -14,11 +14,11 @@ const pkg = require( '../package.json' );
 module.exports = merge( base, {
 	mode: 'development',
 	entry: {
-		scripts: `./${ pkg.square1.paths.core_apps_js_src }Example/index.js`,
+		scripts: [`./${ pkg.square1.paths.core_apps_js_src }Example/index.js`],
 	},
 	output: {
 		filename: 'app.js',
-		path: resolve( `${ __dirname }/../`, 'public/js/' ),
+		path: resolve( `${ __dirname }/../`, 'assets/js/dist/theme' ),
 		publicPath: 'https://localhost:3000/',
 	},
 	...appBase,

@@ -12,6 +12,7 @@ module.exports = {
 		],
 	],
 	plugins: [
+		'react-hot-loader/babel',
 		'lodash',
 		[
 			'module-resolver', {

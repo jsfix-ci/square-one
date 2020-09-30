@@ -16,7 +16,7 @@ module.exports = merge.strategy( {
 	cache: true,
 	mode: 'development',
 	output: {
-		ecmaVersion: 5,
+		//ecmaVersion: 5,
 		filename: '[name].js',
 		chunkFilename: '[name].js',
 	},

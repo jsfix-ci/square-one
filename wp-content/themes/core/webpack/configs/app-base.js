@@ -12,7 +12,7 @@ module.exports = {
 		},
 	},
 	plugins: [
-		new webpack.HashedModuleIdsPlugin(),
+		new webpack.ids.HashedModuleIdsPlugin(),
 		new webpack.LoaderOptionsPlugin( {
 			debug: true,
 		} ),
@@ -43,7 +43,8 @@ module.exports = {
 		],
 	},
 	optimization: {
-		namedModules: true, // NamedModulesPlugin()
+		moduleIds: 'named',
+		//namedModules: true, // NamedModulesPlugin()
 		noEmitOnErrors: true, // NoEmitOnErrorsPlugin
 		concatenateModules: true, //ModuleConcatenationPlugin
 	},
