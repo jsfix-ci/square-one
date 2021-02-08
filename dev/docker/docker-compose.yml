@@ -24,7 +24,7 @@ x-memcached: &memcached
 
 
 x-chrome: &chrome
-  image: 'selenium/standalone-chrome:3.141.59-oxygen'
+  image: 'selenium/standalone-chrome:3.141.59'
   volumes:
     - '/dev/shm:/dev/shm'
   ports:
@@ -32,7 +32,7 @@ x-chrome: &chrome
 
 
 x-php: &php
-  image: moderntribe/squareone-php:74-2.1.1
+  image: moderntribe/squareone-php:74-2.1
   working_dir: /application
   user: "${SQ1_UID:-1000}:${SQ1_GID:-1000}"
   volumes:

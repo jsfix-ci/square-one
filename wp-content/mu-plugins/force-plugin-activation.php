@@ -20,7 +20,6 @@ class Force_Plugin_Activation {
 		'core/core.php',
 		//'tribe-admin-dashboard/tribe-admin-dashboard.php',
 		'disable-emojis/disable-emojis.php',
-		'safe-svg/safe-svg.php',
 		'acf-image-select/acf-image-select.php',
 		'acf-advanced-taxonomy-selector/acf-advanced_taxonomy_selector.php',
 	];
@@ -40,6 +39,7 @@ class Force_Plugin_Activation {
 		'rewrite-rules-inspector/rewrite-rules-inspector.php',
 		'wp-log-in-browser/wp-log-in-browser.php',
 		'wp-xhprof-profiler/xhprof-profiler.php',
+		'wp-tota11y/wp-tota11y.php',
 	];
 
 	/**
@@ -58,6 +58,7 @@ class Force_Plugin_Activation {
 		'rewrite-rules-inspector/rewrite-rules-inspector.php',
 		'wp-log-in-browser/wp-log-in-browser.php',
 		'wp-xhprof-profiler/xhprof-profiler.php',
+		'wp-tota11y/wp-tota11y.php',
 	];
 
 
