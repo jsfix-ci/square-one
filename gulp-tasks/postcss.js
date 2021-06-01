@@ -33,6 +33,8 @@ const sharedPlugins = [
 	} ),
 	require( 'postcss-preset-env' )( { stage: 0, autoprefixer: { grid: true }, features: { 'focus-visible-pseudo-class': false, 'focus-within-pseudo-class': false } } ),
 	require( 'postcss-calc' ),
+	require( 'autoprefixer' ),
+	require( 'tailwindcss' ),
 ];
 
 const compilePlugins = sharedPlugins.concat( [
