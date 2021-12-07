@@ -4,6 +4,7 @@ namespace Tribe\Project;
 
 use Psr\Container\ContainerInterface;
 use Tribe\Project\Admin\Admin_Subscriber;
+use Tribe\Project\Assets\Assets_Definer;
 use Tribe\Project\Assets\Assets_Subscriber;
 use Tribe\Project\Blocks\Blocks_Definer;
 use Tribe\Project\Blocks\Blocks_Subscriber;
@@ -42,6 +43,7 @@ class Core {
 	 * @var string[] Names of classes implementing Definer_Interface
 	 */
 	private $definers = [
+		Assets_Definer::class,
 		Blocks_Definer::class,
 		Nav_Menus_Definer::class,
 		Object_Meta_Definer::class,

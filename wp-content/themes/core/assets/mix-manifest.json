@@ -1,0 +1,16 @@
+{
+    "/css/dist/admin/block-editor.css": "/css/dist/admin/block-editor.css",
+    "/css/dist/admin/login.css": "/css/dist/admin/login.css",
+    "/css/dist/admin/master.css": "/css/dist/admin/master.css",
+    "/css/dist/theme/print.css": "/css/dist/theme/print.css",
+    "/css/dist/theme/legacy.css": "/css/dist/theme/legacy.css",
+    "/css/dist/theme/master.css": "/css/dist/theme/master.css",
+    "/css/dist/admin/mce-editor.css": "/css/dist/admin/mce-editor.css",
+    "/css/dist/theme/master.min.css": "/css/dist/theme/master.min.css",
+    "/css/dist/theme/legacy.min.css": "/css/dist/theme/legacy.min.css",
+    "/css/dist/theme/print.min.css": "/css/dist/theme/print.min.css",
+    "/css/dist/admin/master.min.css": "/css/dist/admin/master.min.css",
+    "/css/dist/admin/login.min.css": "/css/dist/admin/login.min.css",
+    "/css/dist/admin/block-editor.min.css": "/css/dist/admin/block-editor.min.css",
+    "/css/dist/admin/mce-editor.min.css": "/css/dist/admin/mce-editor.min.css"
+}
