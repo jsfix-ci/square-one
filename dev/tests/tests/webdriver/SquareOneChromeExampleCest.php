@@ -16,7 +16,7 @@ class SquareOneChromeExampleCest extends Base_Webdriver_Cest {
 		$I->click( '#save' );
 		$I->waitForJqueryAjax( 20 );
 		$I->makeScreenshot( __LINE__ . ' - After Saving' );
-		$I->assertEquals( $site_title, $I->grabOptionFromDatabase( 'blogname' ) );
+		$I->seeOptionInDatabase( 'blogname', $site_title );
 	}
 
 	public function i_can_view_the_search_results_page_with_no_results( WebDriverTester $I ) {

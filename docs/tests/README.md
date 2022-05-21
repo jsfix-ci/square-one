@@ -7,6 +7,7 @@ standalone image to power chromedriver for acceptance tests that need to use Jav
 
 * [Overview](/docs/tests/README.md)
 * [Jest](/docs/tests/jest.md)
+* [Local WP Tests](/docs/tests/local.md)
 
 ## Setup
 
