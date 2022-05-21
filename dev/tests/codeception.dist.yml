@@ -31,7 +31,7 @@ settings:
 modules:
     config:
         WPDb:
-            dsn: 'mysql:host=%ACCEPTANCE_DB_HOST%;dbname=%ACCEPTANCE_DB_NAME%'
+            dsn: 'mysql:%ACCEPTANCE_DB_DNS_HOST%;dbname=%ACCEPTANCE_DB_NAME%'
             user: '%ACCEPTANCE_DB_USER%'
             password: '%ACCEPTANCE_DB_PASS%'
             dump: tests/_data/dump.sql
