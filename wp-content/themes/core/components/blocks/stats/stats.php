@@ -13,7 +13,7 @@ $c = Stats_Block_Controller::factory( $args );
 
 		<?php get_template_part(
 			'components/content_block/content_block',
-			null,
+			'',
 			$c->get_header_args()
 		) ?>
 
@@ -21,7 +21,7 @@ $c = Stats_Block_Controller::factory( $args );
 			<ul class="b-stats__list">
 				<?php foreach ( $c->get_stats() as $item ) { ?>
 					<li class="b-stats__list-item">
-						<?php get_template_part( 'components/statistic/statistic', null, $item ); ?>
+						<?php get_template_part( 'components/statistic/statistic', '', $item ); ?>
 					</li>
 				<?php } ?>
 			</ul>

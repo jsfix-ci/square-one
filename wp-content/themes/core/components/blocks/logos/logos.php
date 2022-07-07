@@ -13,14 +13,14 @@ $c = Logos_Block_Controller::factory( $args );
 
 		<?php get_template_part(
 			'components/content_block/content_block',
-			null,
+			'',
 			$c->get_header_args()
 		); ?>
 
 		<ul <?php echo $c->get_content_classes(); ?>>
 			<?php foreach ( $c->get_logos() as $logo ) { ?>
 				<li class="b-logo">
-					<?php get_template_part( 'components/image/image', null, $logo ); ?>
+					<?php get_template_part( 'components/image/image', '', $logo ); ?>
 				</li>
 			<?php } ?>
 		</ul>

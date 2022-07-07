@@ -7,11 +7,7 @@ use Tribe\Project\Templates\Components\link\Link_Controller;
  */
 $c = Link_Controller::factory( $args );
 ?>
-<?php get_template_part(
-	'components/text/text',
-	null,
-	$c->get_link_header_args()
-); ?>
+<?php get_template_part( 'components/text/text', '', $c->get_link_header_args() ); ?>
 
 <a <?php echo $c->get_classes(); ?> <?php echo $c->get_attrs(); ?>>
 
@@ -19,8 +15,4 @@ $c = Link_Controller::factory( $args );
 
 </a>
 
-<?php get_template_part(
-	'components/text/text',
-	null,
-	$c->get_link_description_args()
-); ?>
+<?php get_template_part( 'components/text/text', '', $c->get_link_description_args() ); ?>

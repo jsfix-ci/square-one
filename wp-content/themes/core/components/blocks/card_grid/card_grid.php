@@ -15,7 +15,7 @@ $c = Card_Grid_Controller::factory( $args );
 		<?php if ( ! empty( $c->get_header_args() ) && $c->get_layout() === Card_Grid::LAYOUT_STACKED ) { ?>
 			<?php get_template_part(
 				'components/content_block/content_block',
-				null,
+				'',
 				$c->get_header_args()
 			); ?>
 		<?php } ?>
@@ -25,13 +25,13 @@ $c = Card_Grid_Controller::factory( $args );
 			<?php if ( ! empty( $c->get_header_args() ) && $c->get_layout() === Card_Grid::LAYOUT_INLINE ) { ?>
 				<?php get_template_part(
 					'components/content_block/content_block',
-					null,
+					'',
 					$c->get_header_args()
 				); ?>
 			<?php } ?>
 
 			<?php foreach ( $c->get_posts_card_args() as $card_args ) { ?>
-				<?php get_template_part( 'components/card/card', null, $card_args ); ?>
+				<?php get_template_part( 'components/card/card', '', $card_args ); ?>
 			<?php } ?>
 		</div>
 

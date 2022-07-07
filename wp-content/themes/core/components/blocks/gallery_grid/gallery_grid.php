@@ -16,21 +16,21 @@ $c = Gallery_Grid_Controller::factory( $args );
 			<?php if ( ! empty( $c->get_header_args() ) ) { ?>
 				<?php get_template_part(
 					'components/content_block/content_block',
-					null,
+					'',
 					$c->get_header_args()
 				); ?>
 			<?php } ?>
 
 			<?php if ( $c->use_slideshow() ) : ?>
 				<div class="b-gallery-grid__cta">
-					<?php get_template_part( 'components/button/button', null, $c->get_slideshow_button() ); ?>
+					<?php get_template_part( 'components/button/button', '', $c->get_slideshow_button() ); ?>
 				</div>
 			<?php endif; ?>
 		</div>
 
 		<div <?php echo $c->get_content_classes(); ?>>
 			<?php foreach ( $c->get_gallery_img_thumbs() as $img ) {
-				get_template_part( 'components/image/image', null, $img );
+				get_template_part( 'components/image/image', '', $img );
 			} ?>
 		</div>
 
@@ -40,7 +40,7 @@ $c = Gallery_Grid_Controller::factory( $args );
 <?php if ( $c->use_slideshow() ) : ?>
 	<?php get_template_part(
 		'components/dialog/dialog',
-		null,
+		'',
 		$c->get_dialog_args(),
 	) ?>
 <?php endif; ?>

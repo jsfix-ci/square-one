@@ -16,6 +16,6 @@ $c = Section_Nav_Block_Controller::factory( $args );
  */
 get_template_part(
 	'components/section_nav/section_nav',
-	null,
+	'',
 	$c->get_section_nav_args()
 );

@@ -13,12 +13,12 @@ $c = Tabs_Block_Controller::factory( $args );
 		<?php
 		get_template_part(
 			'components/content_block/content_block',
-			null,
+			'',
 			$c->get_header_args()
 		);
 		get_template_part(
 			'components/tabs/tabs',
-			null,
+			'',
 			$c->get_tabs_args()
 		);
 		?>

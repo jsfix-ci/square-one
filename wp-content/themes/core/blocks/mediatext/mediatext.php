@@ -9,6 +9,6 @@ $model = tribe_project()->container()->make( Media_Text_Model::class, $args );
 
 get_template_part(
 	'components/blocks/media_text/media_text',
-	null,
+	'',
 	$model->get_data()
 );

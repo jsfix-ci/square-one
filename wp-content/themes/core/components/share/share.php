@@ -14,7 +14,7 @@ $c = Share_Controller::factory( $args );
 	<ul class="social-share-networks" data-js="social-share-networks">
 		<?php foreach ( $c->get_links() as $link ) { ?>
 			<li class="social-share-networks__item">
-				<?php get_template_part( 'components/link/link', null, $link ); ?>
+				<?php get_template_part( 'components/link/link', '', $link ); ?>
 			</li>
 		<?php } ?>
 	</ul>

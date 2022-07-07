@@ -15,7 +15,7 @@ $c = Gallery_Slider_Controller::factory( $args );
 			<div class="l-container">
 				<?php get_template_part(
 					'components/content_block/content_block',
-					null,
+					'',
 					$c->get_header_args()
 				); ?>
 			</div>
@@ -24,7 +24,7 @@ $c = Gallery_Slider_Controller::factory( $args );
 		<div <?php echo $c->get_content_classes(); ?>>
 			<?php get_template_part(
 				'components/slider/slider',
-				null,
+				'',
 				$c->get_slider_args()
 			); ?>
 		</div>

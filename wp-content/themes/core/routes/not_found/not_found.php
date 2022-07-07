@@ -25,7 +25,7 @@ get_header();
 				</p>
 
 				<div class="not-found__search">
-					<?php get_template_part( 'components/search_form/search_form', null, $c->get_search_form_args() ); ?>
+					<?php get_template_part( 'components/search_form/search_form', '', $c->get_search_form_args() ); ?>
 				</div>
 
 			</div>

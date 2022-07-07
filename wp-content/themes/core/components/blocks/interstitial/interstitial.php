@@ -15,7 +15,7 @@ $c = Interstitial_Block_Controller::factory( $args );
 			<div <?php echo $c->get_media_classes(); ?>>
 				<?php get_template_part(
 					'components/image/image',
-					null,
+					'',
 					$c->get_media_args()
 				); ?>
 			</div>
@@ -25,7 +25,7 @@ $c = Interstitial_Block_Controller::factory( $args );
 			<div <?php echo $c->get_content_classes(); ?>>
 				<?php get_template_part(
 					'components/content_block/content_block',
-					null,
+					'',
 					$c->get_content_args()
 				); ?>
 			</div>

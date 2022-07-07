@@ -16,7 +16,7 @@ get_header();
 
 			<?php if ( has_post_thumbnail() ) : ?>
 				<div class="item-single__featured-image l-sink">
-					<?php get_template_part( 'components/image/image', null, $c->get_featured_image_args() ); ?>
+					<?php get_template_part( 'components/image/image', '', $c->get_featured_image_args() ); ?>
 				</div>
 			<?php endif; ?>
 
@@ -35,7 +35,7 @@ get_header();
 					<div class="r-single-term-list">
 						<?php
 						foreach ( $c->get_taxonomy_terms() as $term ) {
-							get_template_part( 'components/link/link', null, $c->get_term_link_args( $term ) );
+							get_template_part( 'components/link/link', '', $c->get_term_link_args( $term ) );
 						}?>
 					</div>
 
@@ -56,7 +56,7 @@ get_header();
 		</article>
 
 		<div class="l-sink l-sink--double">
-			<?php get_template_part( 'components/pagination/single/single', null, [
+			<?php get_template_part( 'components/pagination/single/single', '', [
 					Single_Pagination_Controller::NEXT_LINK_LABEL     => esc_html__( 'Next article', 'tribe' ),
 					Single_Pagination_Controller::PREVIOUS_LINK_LABEL => esc_html__( 'Previous article', 'tribe' ),
 			]); ?>

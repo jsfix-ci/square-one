@@ -14,7 +14,7 @@ $c = Quote_Block_Controller::factory( $args ); ?>
 			<div <?php echo $c->get_media_classes(); ?>>
 				<?php get_template_part(
 					'components/image/image',
-					null,
+					'',
 					$c->get_media_args()
 				); ?>
 			</div>
@@ -23,7 +23,7 @@ $c = Quote_Block_Controller::factory( $args ); ?>
 		<div <?php echo $c->get_content_classes(); ?>>
 			<?php get_template_part(
 				'components/quote/quote',
-				null,
+				'',
 				$c->get_quote_args()
 			); ?>
 		</div>

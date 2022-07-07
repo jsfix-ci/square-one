@@ -16,7 +16,7 @@ $c = Media_Text_Block_Controller::factory( $args );
 			<?php if ( $c->get_media_type() === Media_Text_Block::IMAGE && ! empty( $c->get_image_args() ) ) {
 				get_template_part(
 					'components/image/image',
-					null,
+					'',
 					$c->get_image_args()
 				);
 			} elseif ( $c->get_media_type() === Media_Text_Block::EMBED && ! empty( $c->get_video_embed() ) ) {
@@ -27,7 +27,7 @@ $c = Media_Text_Block_Controller::factory( $args );
 		<div <?php echo $c->get_content_classes(); ?>>
 			<?php get_template_part(
 				'components/content_block/content_block',
-				null,
+				'',
 				$c->get_content_args()
 			) ?>
 		</div>

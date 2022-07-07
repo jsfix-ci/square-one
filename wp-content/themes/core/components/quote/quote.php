@@ -23,7 +23,7 @@ $c = Quote_Controller::factory( $args );
 
 		<cite class="c-quote__cite">
 			<?php if ( ! empty( ( $c->get_image_args() ) ) ) {
-				get_template_part( 'components/image/image', null, $c->get_image_args() );
+				get_template_part( 'components/image/image', '', $c->get_image_args() );
 			} ?>
 
 			<span class="c-quote__cite-text">
