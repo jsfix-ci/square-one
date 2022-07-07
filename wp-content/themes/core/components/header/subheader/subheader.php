@@ -23,7 +23,7 @@ $c = Subheader_Controller::factory( $args );
 
 		<div <?php echo $c->get_content_classes(); ?>>
 
-			<?php get_template_part( 'components/breadcrumbs/breadcrumbs', 'null', $c->get_breadcrumb_args() ); ?>
+			<?php get_template_part( 'components/breadcrumbs/breadcrumbs', '', $c->get_breadcrumb_args() ); ?>
 			<?php get_template_part( 'components/text/text', null, $c->get_title_args() ); ?>
 			<?php get_template_part( 'components/text/text', null, $c->get_description_args() ); ?>
 

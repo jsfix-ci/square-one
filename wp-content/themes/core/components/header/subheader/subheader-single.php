@@ -17,7 +17,7 @@ $c = Subheader_Single_Controller::factory( $args );
 			<?php
 			if ( $c->get_tag_name() !== null && $c->get_tag_link() !== null ) { ?>
 				<div>
-					<?php get_template_part( 'components/link/link', 'null', $c->get_tag_args() ); ?>
+					<?php get_template_part( 'components/link/link', '', $c->get_tag_args() ); ?>
 				</div>
 			<?php } ?>
 
