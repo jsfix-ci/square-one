@@ -44,8 +44,3 @@ $c = Gallery_Grid_Controller::factory( $args );
 		$c->get_dialog_args(),
 	) ?>
 <?php endif; ?>
-
-<?php if ( $c->use_slideshow() ) : ?>
-<button data-js="new-dialog-trigger" data-content="new-dialog">Open New Dialog</button>
-	<?php get_template_part( 'components/new_dialog/dialog' ) ?>
-<?php endif; ?>
