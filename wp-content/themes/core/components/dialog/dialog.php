@@ -32,9 +32,7 @@ if ( empty( $content ) ) {
 	<?php echo $c->get_dialog_classes(); ?>
 	<?php echo $c->get_dialog_attributes(); ?>
 >
-	<button data-js="dialog-close-button" class="icon icon-close c-dialog__close-button" type="button">
-		<?php _e( 'Close this dialog window', 'tribe' ); ?>
-	</button>
+	<button data-js="dialog-close-button" class="icon icon-close c-dialog__close-button" type="button" aria-label="<?php _e( 'Close this dialog window', 'tribe' ); ?>"></button>
 	<div <?php echo $c->get_overlay_classes(); ?> <?php echo $c->get_overlay_attributes(); ?>>
 		<?php echo $c->get_header(); ?>
 		<div <?php echo $c->get_content_wrapper_classes(); ?> <?php echo $c->get_content_wrapper_attributes(); ?>>
