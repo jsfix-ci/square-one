@@ -132,18 +132,31 @@ const focusRow = ( index, rowIndex, jumpTo ) => {
 	}
 };
 
+const initSlider = ( slider ) => {
+	if ( slider.classList.contains( 'initialized' ) ) {
+		return;
+	}
+
+	console.log( 'init new slider', slider );
+	const swiperMainId = _.uniqueId( 'swiper-' );
+	slider.classList.add( 'initialized' );
+	instances.swipers[ swiperMainId ] = new SwiperCore( slider, getMainOptsForSlider( slider, swiperMainId ) );
+	slider.setAttribute( 'data-id', swiperMainId );
+	slider.setAttribute( 'id', swiperMainId );
+};
+
 /**
  * @module
  * @description Swiper init. Make sure to keep this idempotent/safe to call multiple times!
  */
 
 const initSliders = () => {
-	tools.getNodes( '[data-js="c-slider"]:not(.initialized)', true, document, true ).forEach( ( slider ) => {
-		const swiperMainId = _.uniqueId( 'swiper-' );
-		slider.classList.add( 'initialized' );
-		instances.swipers[ swiperMainId ] = new SwiperCore( slider, getMainOptsForSlider( slider, swiperMainId ) );
-		slider.setAttribute( 'data-id', swiperMainId );
-		slider.setAttribute( 'id', swiperMainId );
+	tools.getNodes( '[data-js="c-slider"]', true, document, true ).forEach( ( slider ) => {
+		if ( slider.closest( '.c-dialog' ) ) {
+			return;
+		}
+
+		initSlider( slider );
 	} );
 };
 
@@ -184,7 +197,7 @@ const bindEvents = () => {
 	if ( window.acf ) {
 		window.acf.addAction( 'render_block_preview', initSliders );
 	}
-	document.addEventListener( 'modern_tribe/component_dialog_rendered', initSliders );
+	document.addEventListener( 'modern_tribe/component_dialog_rendered', ( event ) => initSlider( event.detail.slider ) );
 };
 
 const init = () => {
