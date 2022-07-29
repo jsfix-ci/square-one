@@ -1,5 +1,15 @@
 <?php declare(strict_types=1);
 
+/**
+ * Card Component:
+ * The default behavior is to wrap the entire card in an anchor tag. We use an aria-labelledby attribute
+ * with the id attribute applied to the title of the card. Example: $uuid . '-title'
+ *
+ * If USE_TARGET_LINK is set to false
+ * - it disables the use of the CTA for cards. see: ./card.php or ./card-search.php
+ * - you need to set the anchor attributes using the ATTRS constant.
+ */
+
 namespace Tribe\Project\Templates\Components\card;
 
 use Tribe\Libs\Utils\Markup_Utils;
@@ -103,6 +113,10 @@ class Card_Controller extends Abstract_Controller {
 		$this->use_target_link = (bool) $args[ self::USE_TARGET_LINK ];
 	}
 
+	public function get_use_target_link(): bool {
+		return $this->use_target_link;
+	}
+
 	public function get_tag(): string {
 		return tag_escape( $this->tag );
 	}
@@ -110,6 +124,8 @@ class Card_Controller extends Abstract_Controller {
 	public function get_classes(): string {
 		if ( $this->use_target_link ) {
 			$this->classes[] = 'has-target-link';
+		} else {
+			$this->classes[] = 'c-card--link-wrapper';
 		}
 
 		if ( $this->style !== self::STYLE_PLAIN ) {
@@ -213,7 +229,7 @@ class Card_Controller extends Abstract_Controller {
 			self::META_PRIMARY    => null,
 			self::META_SECONDARY  => null,
 			self::STYLE           => self::STYLE_PLAIN,
-			self::TAG             => 'article',
+			self::TAG             => 'a',
 			self::TITLE           => null,
 			self::USE_TARGET_LINK => false,
 		];

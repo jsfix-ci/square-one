@@ -120,52 +120,20 @@ class Content_Loop_Controller extends Abstract_Controller {
 				],
 			];
 
-			$card_cta =
-				[
-					Link_Controller::CONTENT => __( 'Read More', 'tribe' ),
-					Link_Controller::URL     => $link['url'],
-					Link_Controller::TARGET  => $link['target'],
-					Link_Controller::CLASSES => [
-						'u-hidden',
-					],
-					Link_Controller::ATTRS   => [
-						// These attrs provide the most screen reader accessible link.
-						'id'               => $uuid . '-link',
-						'aria-labelledby'  => $uuid . '-title',
-						'aria-describedby' => $uuid . '-link',
-						// Sets this link as the card's click-within target link.
-						'data-js'          => 'target-link',
-					],
-				];
-
 			// CASE: If not Inline Card Style and is the featured layout
 
 			if ( $layout !== Card_Controller::STYLE_INLINE || $this->layout !== 'layout_feature' ) {
-				$card_cta =
-					[
-						Link_Controller::CONTENT => __( 'Read More', 'tribe' ),
-						Link_Controller::URL     => $link['url'],
-						Link_Controller::TARGET  => $link['target'],
-						Link_Controller::CLASSES => [
-							'c-block__cta-link',
-							'a-cta',
-						],
-						Link_Controller::ATTRS   => [
-							// These attrs provide the most screen reader accessible link.
-							'id'               => $uuid . '-link',
-							'aria-labelledby'  => $uuid . '-title',
-							'aria-describedby' => $uuid . '-link',
-							// Sets this link as the card's click-within target link.
-							'data-js'          => 'target-link',
-						],
-					];
-
 				$card_description = [ Container_Controller::CONTENT => wpautop( $post['excerpt'] ) ];
 			}
 
 			$cards[] = [
 				Card_Controller::STYLE           => $layout,
-				Card_Controller::USE_TARGET_LINK => (bool) $link['url'],
+				Card_Controller::TAG             => ! empty( $link['url'] ) ? 'a' : 'article',
+				Card_Controller::ATTRS           => ! empty( $link['url'] ) ? [
+					'href'            => $link['url'],
+					'aria-labelledby' => $uuid . '-title',
+					'_target'         => $link['target'] ?? '',
+				] : '',
 				Card_Controller::META_PRIMARY    => defer_template_part(
 					'components/container/container',
 					null,
@@ -198,8 +166,7 @@ class Content_Loop_Controller extends Abstract_Controller {
 					null,
 					$card_description,
 				),
-				Card_Controller::IMAGE           => defer_template_part( 'components/image/image', null, $image_array ),
-				Card_Controller::CTA             => defer_template_part( 'components/link/link', null, $card_cta ),
+				Card_Controller::IMAGE           => ! empty( $post['image_id'] ) ? defer_template_part( 'components/image/image', null, $image_array ) : null,
 			];
 		}
 

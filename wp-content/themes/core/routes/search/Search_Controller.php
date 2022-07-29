@@ -64,8 +64,11 @@ class Search_Controller extends Index_Controller {
 
 		return [
 			Card_Controller::STYLE           => Card_Controller::STYLE_SEARCH,
-			Card_Controller::USE_TARGET_LINK => true,
-			Card_Controller::TAG             => 'article',
+			Card_Controller::ATTRS           => [
+				'href'            => get_permalink(),
+				'aria-labelledby' => $uuid . '-title',
+				'_target'         => $link['target'] ?? '',
+			],
 			Card_Controller::CLASSES         => [
 				has_post_thumbnail() ? 'c-card--has-image' : '',
 			],
@@ -85,21 +88,6 @@ class Search_Controller extends Index_Controller {
 				[
 					Text_Controller::CONTENT => wp_trim_words( get_the_excerpt(), 30, '&hellip;' ),
 					Text_Controller::CLASSES => [ 't-body-small' ],
-				]
-			),
-			Card_Controller::CTA             => defer_template_part(
-				'components/link/link',
-				null,
-				[
-					Link_Controller::URL     => get_permalink(),
-					Link_Controller::CONTENT => get_permalink(),
-					Link_Controller::CLASSES => [ 't-helper' ],
-					Link_Controller::ATTRS   => [
-						'id'               => $uuid . '-link',
-						'aria-labelledby'  => $uuid . '-title',
-						'aria-describedby' => $uuid . '-link',
-						'data-js'          => 'target-link',
-					],
 				]
 			),
 		];

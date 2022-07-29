@@ -26,7 +26,9 @@ $c = Card_Controller::factory( $args );
 
 		<?php echo $c->render_description(); ?>
 
-		<?php get_template_part( 'components/container/container', null, $c->get_cta_args() ); ?>
+		<?php if ( $c->get_use_target_link() ) { ?>
+			<?php get_template_part( 'components/container/container', null, $c->get_cta_args() ); ?>
+		<?php } ?>
 
 	</div>
 

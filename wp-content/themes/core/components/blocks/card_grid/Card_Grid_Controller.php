@@ -146,7 +146,11 @@ class Card_Grid_Controller extends Abstract_Controller {
 			$uuid    = uniqid( 'p-' );
 			$cards[] = [
 				Card_Controller::STYLE           => Card_Controller::STYLE_ELEVATED,
-				Card_Controller::USE_TARGET_LINK => true,
+				Card_Controller::ATTRS           => [
+					'href'            => $link['url'],
+					'aria-labelledby' => $uuid . '-title',
+					'_target'         => $link['target'] ?? '',
+				],
 				Card_Controller::TITLE           => defer_template_part(
 					'components/text/text',
 					null,
@@ -178,24 +182,6 @@ class Card_Grid_Controller extends Abstract_Controller {
 							Image_Sizes::FOUR_THREE_SMALL,
 						],
 					],
-				),
-				Card_Controller::CTA             => defer_template_part(
-					'components/link/link',
-					null,
-					[
-						Link_Controller::CONTENT => __( 'Read More', 'tribe' ),
-						Link_Controller::URL     => $link['url'],
-						Link_Controller::TARGET  => $link['target'],
-						Link_Controller::CLASSES => [ 'a-cta', 'is-target-link' ],
-						Link_Controller::ATTRS   => [
-							// These attrs provide the most screen reader accessible link.
-							'id'               => $uuid . '-link',
-							'aria-labelledby'  => $uuid . '-title',
-							'aria-describedby' => $uuid . '-link',
-							// Sets this link as the card's click-within target link.
-							'data-js'          => 'target-link',
-						],
-					]
 				),
 			];
 		}
