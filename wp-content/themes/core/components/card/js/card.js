@@ -6,23 +6,10 @@
  *
  * ----------------------------------------------------------------------------- */
 
-import delegate from 'delegate';
 import * as tools from 'utils/tools';
 
-/* Maximum amount of time between mousedown & mouseup to be considered a true click */
-const MOUSEUP_THRESHOLD = 200;
-
-/* Elements that should be excluded when handling the card click-within */
-const EXCLUDED_TARGETS = [ 'A', 'BUTTON' ];
-
 const el = {
-	siteWrap: document.querySelector( '[data-js="site-wrap"]' ),
-	container: tools.getNodes( 'c-card' ),
-};
-
-const state = {
-	down: 0,
-	up: 0,
+	cards: tools.getNodes( '.c-card', true, document, true ),
 };
 
 /**
@@ -33,62 +20,44 @@ const state = {
  * @param e
  */
 const handleCardClick = ( e ) => {
-	const targetLinkEl = e.delegateTarget.querySelector( '[data-js="target-link"]' );
+	const card = e.currentTarget;
+	const targetLinkEl = card.querySelector( '[data-js="target-link"]' );
+	const selectedText = window.getSelection().toString();
+
+	if ( selectedText ) {
+		return;
+	}
 
 	if ( targetLinkEl && targetLinkEl.hasAttribute( 'href' ) ) {
-		const url = targetLinkEl.getAttribute( 'href' );
-		e.ctrlKey ? window.open( url ) : window.location = url;
+		targetLinkEl.click();
 	}
 };
 
 /**
- * handleCardMouseDown
- *
- * Sets a timestamp on mousedown for cards for testing text selection.
- *
- * @param e
+ * @param linkEl
+ * @description Prevents bubbling from handleCardClick on nested elements with the class "clickable".
  */
-const handleCardMouseDown = ( e ) => {
-	if ( EXCLUDED_TARGETS.includes( e.target.nodeName ) || e.button !== 0 ) {
-		return;
-	}
-
-	state.down = new Date();
-};
-
-/**
- * handleCardMouseUp
- *
- * Checks the amount of time past since mousedown and triggers a click
- * if the time past is less than the threshold.
- *
- * @param e
- */
-const handleCardMouseUp = ( e ) => {
-	if ( EXCLUDED_TARGETS.includes( e.target.nodeName ) || e.button !== 0 ) {
-		return;
-	}
-
-	state.up = new Date();
-
-	if ( state.up - state.down < MOUSEUP_THRESHOLD ) {
-		handleCardClick( e );
-	}
+const stopPropagation = ( linkEl ) => {
+	linkEl.addEventListener( 'click', ( e ) => e.stopPropagation() );
 };
 
 /**
  * bindEvents
  */
 const bindEvents = () => {
-	delegate( el.siteWrap, '[data-js="use-target-link"]', 'mousedown', handleCardMouseDown );
-	delegate( el.siteWrap, '[data-js="use-target-link"]', 'mouseup', handleCardMouseUp );
+	el.cards.forEach( card => {
+		card.addEventListener( 'click', handleCardClick );
+
+		const nestedLinks = tools.getNodes( '.clickable', true, card, true );
+		nestedLinks.forEach( link => stopPropagation( link ) );
+	} );
 };
 
 /**
  * init
  */
 const init = () => {
-	if ( el.container.length === 0 ) {
+	if ( el.cards.length === 0 ) {
 		return;
 	}
 

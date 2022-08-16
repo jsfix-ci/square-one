@@ -193,6 +193,7 @@ class Card_Controller extends Abstract_Controller {
 		}
 
 		$this->cta[ Link_Controller::CLASSES ][] = 'c-card__cta-link';
+		$this->cta[ Link_Controller::CLASSES ][] = 'clickable';
 
 		return [
 			Container_Controller::TAG     => 'p',
