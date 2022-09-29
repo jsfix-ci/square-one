@@ -72,7 +72,6 @@ class Blocks_Definer implements Definer_Interface {
 				'core/html',
 				'core/latest-comments',
 				'core/latest-posts',
-				'core/media-text',
 				'core/more',
 				'core/nextpage',
 				'core/rss',
