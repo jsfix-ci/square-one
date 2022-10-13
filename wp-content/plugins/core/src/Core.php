@@ -13,6 +13,8 @@ use Tribe\Project\Blocks\Middleware\Post_Loop\Post_Loop_Definer;
 use Tribe\Project\Blocks\Middleware\Post_Loop\Post_Loop_Subscriber;
 use Tribe\Project\Cache\Cache_Subscriber;
 use Tribe\Project\CLI\CLI_Definer;
+use Tribe\Project\Example\Filter_Definer;
+use Tribe\Project\Example\Filter_Subscriber;
 use Tribe\Project\Integrations\ACF\ACF_Subscriber;
 use Tribe\Project\Integrations\Google_Tag_Manager\Google_Tag_Manager_Subscriber;
 use Tribe\Project\Integrations\Gravity_Forms\Gravity_Forms_Subscriber;
@@ -54,6 +56,7 @@ class Core {
 		Routes_Definer::class,
 		Settings_Definer::class,
 		Theme_Definer::class,
+		Filter_Definer::class,
 	];
 
 	/**
@@ -73,6 +76,7 @@ class Core {
 		Routes_Subscriber::class,
 		Theme_Subscriber::class,
 		Yoast_SEO_Subscriber::class,
+		Filter_Subscriber::class,
 
 		// Custom Post Types.
 		Post_Types\Sample\Subscriber::class,
